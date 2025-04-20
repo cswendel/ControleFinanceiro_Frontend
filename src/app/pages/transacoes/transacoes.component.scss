@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 0;
+  height: 100%;
+}
+
+h2 {
+  margin: 0 0 20px 0;
+}
+
+.DivTabela {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -2px 4px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+}
+
+.TituloTabela {
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+}

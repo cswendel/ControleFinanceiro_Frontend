@@ -1,2 +1,34 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use '@angular/material' as mat;
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+App {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+:root {
+  @include mat.table-overrides((
+    background-color: #fff,
+    header-headline-color: #333,
+    row-item-label-text-color: #555,
+    row-item-outline-color: #ddd,
+    header-headline-font: 'Roboto',
+    header-headline-size: 14px,
+    row-item-label-text-font: 'Roboto',
+    row-item-label-text-size: 14px,
+    row-item-outline-width: 1px
+  ));
+}
+
+
+
