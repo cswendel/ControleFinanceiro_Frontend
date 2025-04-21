@@ -1,24 +1,37 @@
+<div class="transacoes-container">
+  <span class="saldo-text">Saldo R$</span>
+  <button mat-fab extended (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+    Adicionar transação
+  </button>
+</div>
+
+
 <div class="DivTabela">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <ng-container matColumnDef="data">
+      <ng-container matColumnDef="dateTransaction">
         <th mat-header-cell *matHeaderCellDef> Data </th>
-        <td mat-cell *matCellDef="let transacao"> {{ transacao.data }} </td>
       </ng-container>
 
-      <ng-container matColumnDef="descricao">
+      <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef> Descrição </th>
-        <td mat-cell *matCellDef="let transacao"> {{ transacao.descricao }} </td>
       </ng-container>
 
-      <ng-container matColumnDef="valor">
-        <th mat-header-cell *matHeaderCellDef> Valor (R$) </th>
-        <td mat-cell *matCellDef="let transacao"> {{ transacao.valor | currency:'BRL' }} </td>
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Valor</th>
       </ng-container>
 
-      <ng-container matColumnDef="tipo">
+      <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef> Tipo </th>
-        <td mat-cell *matCellDef="let transacao"> {{ transacao.tipo }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

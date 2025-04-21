@@ -28,6 +28,9 @@ App {
     row-item-label-text-size: 14px,
     row-item-outline-width: 1px
   ));
+  @include mat.fab-overrides((
+    extended-container-height: 40px
+  ));
 }
 
 

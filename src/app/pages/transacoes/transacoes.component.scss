@@ -25,3 +25,28 @@ h2 {
   font-weight: bold;
   margin: 10px;
 }
+.transacoes-container {
+  margin: 5px;
+}
+
+.mat-mini-fab {
+  position: fixed; /* Fixando o botão na tela */
+  bottom: 16px; /* Distância da parte inferior da tela */
+  right: 16px; /* Distância da parte direita da tela */
+  z-index: 1000; /* Garantir que o botão fique sobre outros elementos */
+}
+
+.transacoes-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.saldo-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+
