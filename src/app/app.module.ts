@@ -10,6 +10,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AdicionarTransacaoPopupComponent } from './components/adicionar-transacao-popup/adicionar-transacao-popup.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,12 @@ import { AdicionarTransacaoPopupComponent } from './components/adicionar-transac
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
-
 export class AppModule { }
-
-
