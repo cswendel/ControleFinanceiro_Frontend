@@ -10,7 +10,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 export class AdicionarTransacaoPopupComponent {
   transacao = {
-    value: 0
+    value: "",
+    description: "",
+    OptionType: "1",
+    OptionStatus: "",
+    OptionCategoria:""
   };
   protected readonly close = close;
 
