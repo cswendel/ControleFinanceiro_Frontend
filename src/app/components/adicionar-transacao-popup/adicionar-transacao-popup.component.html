@@ -7,7 +7,7 @@
     </button>
   </div>
 
-  <mat-radio-group [(ngModel)]="transacao.OptionType">
+  <mat-radio-group [(ngModel)]="transacao.OptionType" class="InputRadio">
     <mat-radio-button value="1">Entrada</mat-radio-button>
     <mat-radio-button value="2">Saída</mat-radio-button>
   </mat-radio-group>
@@ -31,7 +31,7 @@
     />
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="Input">
     <mat-label>Status</mat-label>
     <mat-select [(ngModel)]="transacao.OptionStatus">
       <mat-option value="Pendente">Pendente</mat-option>
@@ -40,18 +40,25 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-  <mat-label>Categoria</mat-label>
-  <mat-select [(ngModel)]="transacao.OptionCategoria">
-    <mat-option value="Lazer">Lazer</mat-option>
-    <mat-option value="Alimentação">Alimentação</mat-option>
-    <mat-option value="Moradia">Moradia</mat-option>
-    <mat-option value="Transporte">Transporte</mat-option>
-    <mat-option value="Saúde">Saúde</mat-option>
-    <mat-option value="Educação">Educação</mat-option>
-    <mat-option value="Investimentos">Investimentos</mat-option>
-    <mat-option value="Outros">Outros</mat-option>
-  </mat-select>
+  <mat-form-field appearance="fill" class="Input">
+    <mat-label>Categoria</mat-label>
+    <mat-select [(ngModel)]="transacao.OptionCategoria">
+      <mat-option value="Alimentação">Alimentação</mat-option>
+      <mat-option value="Educação">Educação</mat-option>
+      <mat-option value="Entretenimento">Entretenimento</mat-option>
+      <mat-option value="Investimentos">Investimentos</mat-option>
+      <mat-option value="Lazer">Lazer</mat-option>
+      <mat-option value="Moradia">Moradia</mat-option>
+      <mat-option value="Saúde">Saúde</mat-option>
+      <mat-option value="Transporte">Transporte</mat-option>
+      <mat-option value="Vestuário">Vestuário</mat-option>
+      <mat-option value="Outros">Outros</mat-option>
+    </mat-select>
   </mat-form-field>
+
+  <button mat-flat-button>
+    <mat-icon>add</mat-icon>
+    Criar transação
+  </button>
 
 </div>
