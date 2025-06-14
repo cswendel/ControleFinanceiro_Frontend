@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AdicionarTransacaoPopupComponent } from '../../components/adicionar-transacao-popup/adicionar-transacao-popup.component';
 import { TransacaoService } from '../../services/transacao.service';
 import { DatePipe } from '@angular/common';
+import {EditarTransacaoPopupComponent} from '../../components/editar-transacao-popup/editar-transacao-popup.component';
 
 @Component({
   selector: 'app-transacoes',
@@ -11,13 +12,12 @@ import { DatePipe } from '@angular/common';
   styleUrl: './transacoes.component.scss'
 })
 export class TransacoesComponent implements OnInit {
-  displayedColumns: string[] = ['dateTransaction', 'description', 'value', 'type', 'category', 'status'];
+  displayedColumns: string[] = ['dateTransaction', 'description', 'value', 'type', 'category', 'status', 'opcoes'];
   dataSource = [];
 
   constructor(
     private dialog: MatDialog,
-    private transacaoService: TransacaoService,
-    private datePipe: DatePipe
+    private transacaoService: TransacaoService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +29,14 @@ export class TransacoesComponent implements OnInit {
       width: '400px',
       data: {}
     });
+  }
+
+  openEditDialog(transacao: any): void {
+    this.dialog.open(EditarTransacaoPopupComponent, {
+      width: '400px',
+      data: { transacao: transacao }
+    });
+
   }
 
   listarTransacoes(): void {

@@ -1,0 +1,30 @@
+.PopUp {
+  width: auto;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.Input {
+  width: 100%;
+}
+
+.InputRadio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.EspaçoBotãoFechar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.TituloPopup {
+  font-size: 20px;
+  font-weight: 500;
+}

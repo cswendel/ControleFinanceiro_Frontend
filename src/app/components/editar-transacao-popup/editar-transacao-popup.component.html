@@ -1,0 +1,71 @@
+<div class="PopUp">
+
+  <div class="EspaçoBotãoFechar">
+    <span class="TituloPopup">Editar transação</span>
+    <button mat-icon-button (click)="Close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-radio-group [(ngModel)]="transacao.type" class="InputRadio">
+    <mat-radio-button value=true>Entrada</mat-radio-button>
+    <mat-radio-button value=false>Saída</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field appearance="outline" class="Input">
+    <mat-label>Valor (R$)</mat-label>
+    <input
+      matInput
+      type="number"
+      prefix="R$ "
+      [(ngModel)]="transacao.value"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="Input">
+    <mat-label>Data da transação</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="transacao.dateTransaction"/>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="Input">
+    <mat-label>Descrição</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="transacao.description"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="Input">
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="transacao.status">
+      <mat-option value="Pendente">Pendente</mat-option>
+      <mat-option value="Agendado">Agendado</mat-option>
+      <mat-option value="Pago">Pago</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="Input">
+    <mat-label>Categoria</mat-label>
+    <mat-select [(ngModel)]="transacao.category">
+      <mat-option value="Alimentação">Alimentação</mat-option>
+      <mat-option value="Educação">Educação</mat-option>
+      <mat-option value="Entretenimento">Entretenimento</mat-option>
+      <mat-option value="Investimentos">Investimentos</mat-option>
+      <mat-option value="Lazer">Lazer</mat-option>
+      <mat-option value="Moradia">Moradia</mat-option>
+      <mat-option value="Saúde">Saúde</mat-option>
+      <mat-option value="Transporte">Transporte</mat-option>
+      <mat-option value="Vestuário">Vestuário</mat-option>
+      <mat-option value="Outros">Outros</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-flat-button>
+    <mat-icon>edit</mat-icon>
+    Editar transação
+  </button>
+
+</div>
