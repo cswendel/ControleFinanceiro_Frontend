@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdicionarTransacaoPopupComponent } from '../../components/adicionar-transacao-popup/adicionar-transacao-popup.component';
 import { TransacaoService } from '../../services/transacao.service';
-import { DatePipe } from '@angular/common';
 import {EditarTransacaoPopupComponent} from '../../components/editar-transacao-popup/editar-transacao-popup.component';
 
 @Component({
