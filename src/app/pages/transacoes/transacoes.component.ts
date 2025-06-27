@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdicionarTransacaoPopupComponent } from '../../components/adicionar-transacao-popup/adicionar-transacao-popup.component';
-import { TransacaoService } from '../../services/transacao.service';
 import {EditarTransacaoPopupComponent} from '../../components/editar-transacao-popup/editar-transacao-popup.component';
+import {TransactionControllerService} from '../../api/services/transaction-controller.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-transacoes',
@@ -12,11 +13,11 @@ import {EditarTransacaoPopupComponent} from '../../components/editar-transacao-p
 })
 export class TransacoesComponent implements OnInit {
   displayedColumns: string[] = ['dateTransaction', 'description', 'value', 'type', 'category', 'status', 'opcoes'];
-  dataSource = [];
+  dataSource = new MatTableDataSource<any>([]);
 
   constructor(
     private dialog: MatDialog,
-    private transacaoService: TransacaoService
+    private transactionService: TransactionControllerService
   ) {}
 
   ngOnInit(): void {
@@ -24,9 +25,15 @@ export class TransacoesComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(AdicionarTransacaoPopupComponent, {
+    const dialogRef = this.dialog.open(AdicionarTransacaoPopupComponent, {
       width: '400px',
       data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.listarTransacoes();
+      }
     });
   }
 
@@ -39,12 +46,24 @@ export class TransacoesComponent implements OnInit {
   }
 
   listarTransacoes(): void {
-    this.transacaoService.ListAll().subscribe({
+    this.transactionService.getAllTransactions$Response().subscribe({
       next: (res) => {
-        this.dataSource = res;
+        this.dataSource.data = res.body ?? [];
       },
       error: (err) => {
         console.error('Erro ao listar transações:', err);
+      }
+    });
+  }
+
+  deletarTransacao(id: number): void {
+    this.transactionService.deleteById({id}).subscribe({
+      next: () => {
+        console.log('Transação deletada com sucesso!');
+        this.listarTransacoes();
+      },
+      error: (err) => {
+        console.error('Erro ao deletar transação:', err);
       }
     });
   }

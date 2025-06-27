@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { TransacaoService} from '../../services/transacao.service';
+import {TransactionControllerService} from '../../api/services/transaction-controller.service';
 
 @Component({
   selector: 'app-adicionar-transacao-popup',
@@ -14,7 +14,7 @@ export class AdicionarTransacaoPopupComponent {
   transacao = {
     value: "",
     description: "",
-    type: null,
+    type: undefined,
     status: "",
     category:"",
     dateTransaction: "",
@@ -23,17 +23,17 @@ export class AdicionarTransacaoPopupComponent {
 
   constructor(
     private dialogRef: MatDialogRef<AdicionarTransacaoPopupComponent>,
-    private transacaoService: TransacaoService
+    private transactionService: TransactionControllerService
   ) {}
 
-  Close(): void {
-    this.dialogRef.close();
+  Close(b: boolean): void {
+    this.dialogRef.close(b);
   }
 
   Create() {
-    this.transacaoService.Create(this.transacao).subscribe({
-      next: (res) => {
-        this.Close();
+    this.transactionService.create({body: this.transacao}).subscribe({
+      next: () => {
+        this.dialogRef.close(true);
       },
       error: (err) => {
         const codigoErro = err.error.code;
