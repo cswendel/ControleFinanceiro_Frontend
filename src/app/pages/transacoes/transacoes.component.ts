@@ -46,9 +46,10 @@ export class TransacoesComponent implements OnInit {
   }
 
   listarTransacoes(): void {
-    this.transactionService.getAllTransactions$Response().subscribe({
+    this.transactionService.getAllTransactions().subscribe({
       next: (res) => {
-        this.dataSource.data = res.body ?? [];
+        this.dataSource.data = res ?? [];
+        console.log('Transações recebidas:', res);
       },
       error: (err) => {
         console.error('Erro ao listar transações:', err);

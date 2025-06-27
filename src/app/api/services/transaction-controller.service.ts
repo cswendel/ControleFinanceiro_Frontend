@@ -99,7 +99,7 @@ export class TransactionControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   create(params: {
-    body: { value: string; description: string; type: null; status: string; category: string; dateTransaction: string }
+    body: { value: number; description: string; type: undefined; status: string; category: string; dateTransaction: string }
   }, context?: HttpContext): Observable<Transaction> {
     return this.create$Response(params, context).pipe(
       map((r: StrictHttpResponse<Transaction>): Transaction => r.body)

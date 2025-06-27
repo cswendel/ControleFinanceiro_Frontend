@@ -12,7 +12,7 @@ import {TransactionControllerService} from '../../api/services/transaction-contr
 export class AdicionarTransacaoPopupComponent {
 
   transacao = {
-    value: "",
+    value: 0,
     description: "",
     type: undefined,
     status: "",
