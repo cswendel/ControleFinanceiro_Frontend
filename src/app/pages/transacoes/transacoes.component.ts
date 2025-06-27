@@ -38,11 +38,16 @@ export class TransacoesComponent implements OnInit {
   }
 
   openEditDialog(transacao: any): void {
-    this.dialog.open(EditarTransacaoPopupComponent, {
+    const dialogRef = this.dialog.open(EditarTransacaoPopupComponent, {
       width: '400px',
       data: { transacao: transacao }
     });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.listarTransacoes();
+      }
+    });
   }
 
   listarTransacoes(): void {

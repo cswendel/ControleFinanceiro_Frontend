@@ -7,11 +7,6 @@
     </button>
   </div>
 
-  <mat-radio-group [(ngModel)]="transacao.type" class="InputRadio">
-    <mat-radio-button value=true>Entrada</mat-radio-button>
-    <mat-radio-button value=false>Saída</mat-radio-button>
-  </mat-radio-group>
-
   <mat-form-field appearance="outline" class="Input">
     <mat-label>Valor (R$)</mat-label>
     <input
@@ -63,7 +58,7 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-flat-button>
+  <button mat-flat-button (click)="salvarEdicao()">
     <mat-icon>edit</mat-icon>
     Editar transação
   </button>
